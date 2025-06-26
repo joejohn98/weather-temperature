@@ -35,13 +35,17 @@ const WeatherTemperature = () => {
     <div>
         <h2>Weather Temperature</h2>
         {weatherData && (
-            <div>
+            <div >
                 <p>
                     Temperature:{" "}
                     {isCelsius
                         ? `${weatherData.temperature}°C`
                         : `${(((weatherData.temperature) * 9) / 5 + 32).toFixed()}°F`}
                 </p>
+                <p>Humidity: {weatherData.humidity}%</p>
+                <p>Wind Speed: {weatherData.windSpeed} km/h</p>
+                <button onClick={() => setIsCelsius(!isCelsius)}>
+                    Switch to {isCelsius ? "Fahrenheit" : "Celsius"}</button>
             </div>
         )}
     </div>
