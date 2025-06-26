@@ -27,9 +27,23 @@ const WeatherTemperature = () => {
         fetchWeather()
     }, [])
 
+    if(loading){
+        return <p>Loading Weather Data...</p>
+    }
+
   return (
     <div>
         <h2>Weather Temperature</h2>
+        {weatherData && (
+            <div>
+                <p>
+                    Temperature:{" "}
+                    {isCelsius
+                        ? `${weatherData.temperature}°C`
+                        : `${(((weatherData.temperature) * 9) / 5 + 32).toFixed()}°F`}
+                </p>
+            </div>
+        )}
     </div>
   )
 }
